@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8d8a1e88c96e636dfbbec16a6310116b",
+    "revision": "1244e252bb5d0d02e21ab80ccbb521dc",
     "url": "/SpotifyProyectoDos/index.html"
   },
   {
-    "revision": "ce85614898e04e293390",
+    "revision": "b3f36f3d2cf74a3a5826",
     "url": "/SpotifyProyectoDos/static/css/main.0844f9ea.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SpotifyProyectoDos/static/js/2.1b01b0ff.chunk.js"
   },
   {
-    "revision": "ce85614898e04e293390",
-    "url": "/SpotifyProyectoDos/static/js/main.e6c19d26.chunk.js"
+    "revision": "b3f36f3d2cf74a3a5826",
+    "url": "/SpotifyProyectoDos/static/js/main.0b88670f.chunk.js"
   },
   {
     "revision": "f4186f8f6528c596f504",
