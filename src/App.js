@@ -8,6 +8,7 @@ import { FaPlus,
 import { IconContext } from "react-icons";
 import SpotifyWebApi from 'spotify-web-api-js';
 import { importDeclaration } from '@babel/types';
+import Cred from './credientals'
 
 import SpotifyLogin from 'react-spotify-login';
 
@@ -180,8 +181,8 @@ stopMusic=()=>{
       <div className="App">
         
         <SpotifyLogin 
-        clientId= 'ClientID'
-        redirectUri= 'https://mherrity.github.io/SpotifyProyectoDos/callback'
+        clientId= {Cred['ClientID']}
+        redirectUri= {Cred['redirectUri']}
         scope= 'user-read-private user-read-email user-library-read user-top-read user-library-modify'
         onSuccess={ (response)=>{this.onSuccess(response)} }
         />
