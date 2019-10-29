@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SpotifyLogin from 'react-spotify-login';
 
 
 export default class Login extends Component {

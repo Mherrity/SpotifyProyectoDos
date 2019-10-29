@@ -2,7 +2,7 @@
   "name": "spotifyapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Mherrity.github.io/SpotifyProyectoDos",
+  "homepage": "https://mherrity.github.io/SpotifyProyectoDos",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

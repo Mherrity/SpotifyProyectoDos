@@ -8,10 +8,9 @@ import { FaPlus,
 import { IconContext } from "react-icons";
 import SpotifyWebApi from 'spotify-web-api-js';
 import { importDeclaration } from '@babel/types';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import SpotifyLogin from 'react-spotify-login';
-//import { importDefaultSpecifier } from '@babel/types';
-//import { conditionalExpression } from '@babel/types';
+
 
 
 
@@ -19,8 +18,7 @@ var spotifyApi = new SpotifyWebApi();
 class App extends Component {
   constructor(){
     super();
-    //var params = this.getHashParams();
-    //var token = params.access_token;
+
   
     this.state = {
       images: false,
