@@ -23,12 +23,13 @@ class App extends Component {
     var token = params.access_token;
     if (token) {
       spotifyApi.setAccessToken(token);
+      this.setState({loggedIn: true})
     }
     this.state = {
-      loggedIn: token ? true : false,
       images: false,
       currentlyPlaying: null,
-      Artists: {}
+      Artists: {},
+      loggedIn: false
     } 
   }
   
@@ -188,7 +189,7 @@ stopMusic=()=>{
 
   render() {
     return (
-      <Router>
+    
       <div className="App">
         
         <SpotifyLogin 
@@ -231,7 +232,7 @@ stopMusic=()=>{
           </button>
         }
       </div>
-      </Router>
+      
     );
   }
 }
