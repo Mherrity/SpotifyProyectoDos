@@ -19,31 +19,20 @@ var spotifyApi = new SpotifyWebApi();
 class App extends Component {
   constructor(){
     super();
-    var params = this.getHashParams();
-    var token = params.access_token;
-    if (token) {
-      spotifyApi.setAccessToken(token);
-      this.setState({loggedIn: true})
-    }
+    //var params = this.getHashParams();
+    //var token = params.access_token;
+  
     this.state = {
       images: false,
       currentlyPlaying: null,
       Artists: {},
-      loggedIn: false
-    } 
-  }
-  
-
-  getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
-    e = r.exec(q)
-    while (e) {
-       hashParams[e[1]] = decodeURIComponent(e[2]);
-       e = r.exec(q);
+      token: null
     }
-    return hashParams;
+  }
+
+  onSuccess=(response)=>{
+    spotifyApi.setAccessToken(response.access_token)
+    this.setState({token: response.access_token})
   }
 
 
@@ -196,7 +185,7 @@ stopMusic=()=>{
         clientId='e5a3b8fc89bc4329808110b17b0ab96e'
         redirectUri= 'https://mherrity.github.io/SpotifyProyectoDos'
         scope= 'user-read-private user-read-email user-library-read user-top-read user-library-modify'
-        buttontext
+        onSuccess={ (response)=>{this.onSuccess(response)} }
         />
           
         <div className="containerParent">
@@ -226,7 +215,7 @@ stopMusic=()=>{
         </div>
       
        
-        {this.state.loggedIn &&
+        {this.state.token &&
           <button onClick={() => this.getTopArtists()}>
             Get Top Artists
           </button>
