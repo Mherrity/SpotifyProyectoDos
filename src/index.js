@@ -10,8 +10,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 ReactDOM.render(
     <Router>
-     <Route exact path ='/' component = {App}/>
-     <Route exact path ='/callback' component = {Login}/>
+     <Route path ='/' component = {App}/>
+     <Route path ='/SpotifyProyectoDoc/callback' component = {Login}/>
     </Router>
     
     , document.getElementById('root'));

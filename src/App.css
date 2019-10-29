@@ -120,7 +120,7 @@
   color: grey;
   position: absolute;
   bottom: 12%;
-  right: 5%;
+  right: 10%;
   align-content: center;
 }
 .chevron-right{
@@ -136,6 +136,13 @@
   bottom: 50%;
   right: 90%;
   align-content: center
+}
+.red-minus{
+  color: grey;
+  position: absolute;
+  bottom: 12%;
+  left: 10%;
+  align-content: center;
 }
 .Popularity{
   position: absolute;

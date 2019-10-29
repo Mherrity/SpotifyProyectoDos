@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import { FaPlus, 
-        FaMinus,
+        FaTimes,
         FaChevronRight,
         FaChevronLeft,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import SpotifyWebApi from 'spotify-web-api-js';
-import { importDeclaration } from '@babel/types';
+import { importDeclaration, importDefaultSpecifier } from '@babel/types';
 import Cred from './credientals'
 
 import SpotifyLogin from 'react-spotify-login';
@@ -25,7 +25,10 @@ class App extends Component {
       images: false,
       currentlyPlaying: null,
       Artists: {},
-      token: null
+      token: null,
+      prevArtist: null,
+      currentArtist: null,
+      Ready: false
     }
   }
 
@@ -33,7 +36,20 @@ class App extends Component {
     spotifyApi.setAccessToken(response.access_token)
     this.setState({token: response.access_token})
   }
-
+removeArtist=(artistID)=>{
+  this.setState(({ Artists }) => ({
+    Artists: {
+      ...Artists,
+      [artistID]: {
+       "Show": false }
+    }
+  }),()=>console.log(this.state.Artists))
+  spotifyApi.spotifyApi.getArtistRelatedArtists(artistID)
+  .then((response)=>{
+    let len =response.artists.length
+    let index = Math.floor(Math.random() * len)   
+} )
+}
 
 
   incrementSong=(ArtistID)=>{
@@ -87,10 +103,10 @@ class App extends Component {
            "Name": artist.name, 
            "songDict": null, 
            "Pop": artist.popularity,
-           "CurrentPlaying": 0,
-            "CurrentlyShown": null }
+           "CurrentPlaying": 0, 
+            "Show": true  }
          }
-       }))
+       }),this.setState({Ready: true}))
   })  
       this.setState({
           images: response.items.map(function (artist) { 
@@ -105,10 +121,13 @@ class App extends Component {
 
 
 getRelatedArtists=(ArtistID)=>{
+  this.setState({currentArtist: ArtistID,
+                prevArtist: this.state.currentArtist})
   console.log(ArtistID)
   spotifyApi.getArtistRelatedArtists(ArtistID)
   .then((response)=>{
     response.artists.forEach((artist)=> { 
+      if(!this.state.Artists[artist.id]){
       this.setState(({ Artists }) => ({
        Artists: {
          ...Artists,
@@ -118,9 +137,9 @@ getRelatedArtists=(ArtistID)=>{
          "songDict": null, 
          "Pop": artist.popularity,
          "CurrentPlaying": 0,
-          "CurrentlyShown": null }
+          "Show": true }
        }
-     }))
+     })) }
    })  
     this.setState({
         images: response.artists.map(function (artist) { 
@@ -129,6 +148,7 @@ getRelatedArtists=(ArtistID)=>{
             "ID": artist.id }
      }) 
   })
+  
 })
 }
 
@@ -179,7 +199,10 @@ stopMusic=()=>{
     return (
     
       <div className="App">
-        
+        {this.state.prevArtist
+        && <button onClick={()=>{this.getRelatedArtists(this.state.prevArtist)}}>
+        <text>Bacc</text>
+         </button> }
         <SpotifyLogin 
         clientId= {Cred['ClientID']}
         redirectUri= {Cred['redirectUri']}
@@ -189,8 +212,9 @@ stopMusic=()=>{
           
         <div className="containerParent">
       
-      {this.state.images && this.state.images.map((img) => (
-       
+      {this.state.images && this.state.Ready && this.state.images.map((img) => {
+        if(this.state.Artists[img.ID].Show){
+       return (
         <div key= {img.ID} className="container">
         < img key= {img.Name} 
         className="circular--portrait" 
@@ -204,12 +228,12 @@ stopMusic=()=>{
      
        
       <h1 className='Popularity'>{this.state.Artists[img.ID].Pop}</h1>
+      <FaTimes className='red-minus' size={35} onClick={()=>this.removeArtist(img.ID)}/>
       <FaPlus className='green-plus' size={35} onClick={()=>this.saveSong(img.ID)}/>
       <FaChevronLeft className='chevron-left' size={20} onClick={()=>this.decrementSong(img.ID)} />
       <FaChevronRight className='chevron-right' size={20} onClick={()=>this.incrementSong(img.ID)} />
-         </div>
-       
-          ))}
+         </div>      
+          )}} )} 
            
         </div>
       
