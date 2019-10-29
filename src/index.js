@@ -13,7 +13,8 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Router>
-     <Route path ='/' component = {App}/>
+     <Route exact path ='/' component = {App}/>
+     <Route exact path ='/callback' component = {Login}/>
     </Router>
     
     , document.getElementById('root'));
