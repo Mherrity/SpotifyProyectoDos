@@ -190,9 +190,6 @@ stopMusic=()=>{
     return (
       <Router>
       <div className="App">
-       
-
-        <button>Login To Spotify </button>
         
         <SpotifyLogin 
         clientId='e5a3b8fc89bc4329808110b17b0ab96e'
