@@ -8,8 +8,13 @@ import { FaPlus,
 import { IconContext } from "react-icons";
 import SpotifyWebApi from 'spotify-web-api-js';
 import { importDeclaration } from '@babel/types';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import SpotifyLogin from 'react-spotify-login';
 //import { importDefaultSpecifier } from '@babel/types';
 //import { conditionalExpression } from '@babel/types';
+
+
+
 var spotifyApi = new SpotifyWebApi();
 class App extends Component {
   constructor(){
@@ -183,14 +188,18 @@ stopMusic=()=>{
 
   render() {
     return (
+      <Router>
       <div className="App">
-        
-        <a href='https://mherrity.github.io/SpotifyProyectoDos/8888' > 
+       
+
         <button>Login To Spotify </button>
-        </a>
-      
-          
-         
+        
+        <SpotifyLogin 
+        clientId='e5a3b8fc89bc4329808110b17b0ab96e'
+        redirectUri= 'https://mherrity.github.io/SpotifyProyectoDos'
+        scope= 'user-read-private user-read-email user-library-read user-top-read user-library-modify'
+        buttontext
+        />
           
         <div className="containerParent">
       
@@ -219,12 +228,13 @@ stopMusic=()=>{
         </div>
       
        
-        { this.state.loggedIn &&
+        {this.state.loggedIn &&
           <button onClick={() => this.getTopArtists()}>
             Get Top Artists
           </button>
         }
       </div>
+      </Router>
     );
   }
 }
