@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SpotifyProyectoDos/static/css/main.799dba77.chunk.css",
-    "main.js": "/SpotifyProyectoDos/static/js/main.a53936e5.chunk.js",
-    "main.js.map": "/SpotifyProyectoDos/static/js/main.a53936e5.chunk.js.map",
+    "main.js": "/SpotifyProyectoDos/static/js/main.01dcddd2.chunk.js",
+    "main.js.map": "/SpotifyProyectoDos/static/js/main.01dcddd2.chunk.js.map",
     "runtime-main.js": "/SpotifyProyectoDos/static/js/runtime-main.92363e50.js",
     "runtime-main.js.map": "/SpotifyProyectoDos/static/js/runtime-main.92363e50.js.map",
     "static/js/2.a0f4917c.chunk.js": "/SpotifyProyectoDos/static/js/2.a0f4917c.chunk.js",
     "static/js/2.a0f4917c.chunk.js.map": "/SpotifyProyectoDos/static/js/2.a0f4917c.chunk.js.map",
     "index.html": "/SpotifyProyectoDos/index.html",
-    "precache-manifest.1d0bf46ae84be454e1e8522bfe838f9d.js": "/SpotifyProyectoDos/precache-manifest.1d0bf46ae84be454e1e8522bfe838f9d.js",
+    "precache-manifest.06496bcb01c889644c6a03b1b2c45b42.js": "/SpotifyProyectoDos/precache-manifest.06496bcb01c889644c6a03b1b2c45b42.js",
     "service-worker.js": "/SpotifyProyectoDos/service-worker.js",
     "static/css/main.799dba77.chunk.css.map": "/SpotifyProyectoDos/static/css/main.799dba77.chunk.css.map"
   }
